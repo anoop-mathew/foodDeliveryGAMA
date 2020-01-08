@@ -1,0 +1,182 @@
+<nav  class="navbar">
+    <img src="/assets/images/logo.png"  width="100" height="50">
+    <form class="form-inline" >
+            <a href="home"><button  type="button"  class="btn btn-link"  style="color: white;">Home</button></a>
+            <a href="home" ><button  type="button"  class="btn btn-link"  style="color: white;">Food Category</button></a>
+            <a class="pointer" (click)="logout()" style="color: white;">Logout</a>
+        </form>
+  </nav>
+
+<div class="wrap1">
+ 
+    <div class="container">
+
+   
+     <div class="main-title"  style="text-align: center;">
+         <h1 style="color:white">Chinese Food</h1><br>
+     </div>
+   
+     <div class="row mgn-btm wow">
+      <span>
+         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="content">
+               <form class="login-form" action="">
+                  <div class="form-header">
+                   <img src="/assets/images/sweet.jpg" style=" border-radius: 50%" width="200" height="150" >
+                 <h4>Sweet and Sour Pork</h4>
+                 <p>₹90/- </p>
+                  <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+                     
+                   </div>
+         
+                  </form>
+             </div>
+         </div>
+         </span>
+         <span>
+         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="content">
+               <form class="login-form" action="">
+                  <div class="form-header">
+                   <img src="/assets/images/Kung.jpg" style=" border-radius: 50%" width="200" height="150" >
+                 <h4>Kung Pao Chicken</h4>
+                 <p>₹250/- </p>
+                  <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+                     
+                   </div>
+         
+                  </form>
+             </div>
+         </div>
+         </span>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="content">
+               <form class="login-form" action="">
+                  <div class="form-header">
+                   <img src="/assets/images/Spring.jpg" style=" border-radius: 50%" width="200" height="150" >
+                 <h4>Spring Rolls</h4>
+                 <p>₹75/- </p>
+                  <p><button class="cart-button"  (click)="cart()" >Add to Cart</button></p>
+                     
+                   </div>
+         
+                  </form>
+             </div>
+         </div>
+     </div>
+     
+     
+     <br>
+     
+     <div class="row mgn-btm wow">
+      <span>
+         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="content">
+               <form class="login-form" action="">
+                  <div class="form-header">
+                   <img src="/assets/images/Dumplings.jpg" style=" border-radius: 50%" width="200" height="150" >
+                 <h4>Dumplings</h4>
+                 <p>₹50/- </p>
+                  <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+                     
+                   </div>
+         
+                  </form>
+             </div>
+         </div>
+         </span>
+         <span>
+         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="content">
+               <form class="login-form" action="">
+                  <div class="form-header">
+                   <img src="/assets/images/Fried-Rice.jpg" style=" border-radius: 50%" width="200" height="150" >
+                 <h4>Fried Rice</h4>
+                 <p>₹95/- </p>
+                  <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+                     
+                   </div>
+         
+                  </form>
+             </div>
+         </div>
+         </span>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="content">
+               <form class="login-form" action="">
+                  <div class="form-header">
+                   <img src="/assets/images/noodles.jpg" style=" border-radius: 50%" width="200" height="150" >
+                 <h4>Noodles</h4>
+                 <p>₹120/- </p>
+                  <p><button class="cart-button"  (click)="cart()" >Add to Cart</button></p>
+                     
+                   </div>
+         
+                  </form>
+             </div>
+         </div>
+     </div>
+     
+         <br>
+     
+     <div class="row mgn-btm wow">
+      <span>
+         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="content">
+               <form class="login-form" action="">
+                  <div class="form-header">
+                   <img src="/assets/images/Hot-Pot.jpg" style=" border-radius: 50%" width="200" height="150" >
+                 <h4>Hot Pot</h4>
+                 <p>₹250/- </p>
+                  <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+                     
+                   </div>
+         
+                  </form>
+             </div>
+         </div>
+         </span>
+         <span>
+         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="content">
+               <form class="login-form" action="">
+                  <div class="form-header">
+                   <img src="/assets/images/Peking-Duck.jpg" style=" border-radius: 50%" width="200" height="150" >
+                 <h4>Peking Duck</h4>
+                 <p>₹150/- </p>
+                  <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+                     
+                   </div>
+         
+                  </form>
+             </div>
+         </div>
+         </span>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="content">
+               <form class="login-form" action="">
+                  <div class="form-header">
+                   <img src="/assets/images/Noodle-soup.jpg" style=" border-radius: 50%" width="200" height="150" >
+                 <h4>Noodle Soup</h4>
+                 <p>₹100/- </p>
+                  <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+                     
+                   </div>
+         
+                  </form>
+             </div>
+         </div>
+     </div>
+     
+    
+ </div>
+ </div>
+
+ <footer class="footer">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="color: white;">© 2019 Copyright:
+          <a href="https://apc.delve.office.com/?u=2096e27a-3d60-4397-a5fb-69767aae98e4&v=work" style="color: white;">Anoop</a>
+        </div>
+        <!-- Copyright -->
+    </footer>

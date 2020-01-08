@@ -1,0 +1,76 @@
+
+.pointer {
+  cursor: pointer;
+}
+.navbar {
+  background-color: #221a16;
+}
+
+
+thead{
+    background-color:black;
+   }
+  
+   .container{
+     width: 60%;
+    
+   }
+
+
+   .bg{
+    height: 100%;
+    width: 280px;
+    position: float;
+    z-index: 1;
+
+    left: 0;
+    background-color:#221a16;
+    overflow-x: hidden;
+    transition: 0.5s;
+    
+   }
+  
+
+
+   .sidenav {
+   // height: 100%;
+    width: 220px;
+    position: fixed;
+   
+  }
+  
+  ul{
+    list-style-type:none;
+    font-size: 30px;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
