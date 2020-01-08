@@ -1,0 +1,29 @@
+
+<div class="bg">
+<div id="mySidenav" class="sidenav " >
+<!--  
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a> -->
+  <!-- &nbsp; &nbsp; &nbsp; &nbsp;<img src="/assets/images/logo.png" width="100" height="50">  -->
+  <a class="text-white">
+    <h1>Food Category</h1>
+  </a>
+  <!-- <a class="pointer" (click)="indian()" class="text-white" >Soups</a>
+  <a class="pointer" (click)="chinese()" class="text-white" >Starters</a>
+  <a class="pointer" (click)="american()" class="text-white" >Main Course</a>
+  <a class="pointer" (click)="american()" class="text-white" >Desserts</a> -->
+
+  <ul  *ngFor="let item of list">
+    <li class="text-white">{{item.value}}</li>
+  </ul>
+  
+</div>
+</div>
+<!-- <div id="main">
+    <span style="font-size:30px;cursor:pointer" (click)= "openNav()" >&#9776; </span>
+  </div>
+   -->
+
+<!-- <div id="main">
+          
+      
+</div> -->

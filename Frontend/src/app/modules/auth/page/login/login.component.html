@@ -1,0 +1,135 @@
+<!-- 
+<div class="container-fluid full-width-image">
+  <div class="auth-container">
+    <div class="auth-box">
+      <div class="container">
+        <div class="card col-md-6 mt-3 mx-auto">
+          <div class="card-body">
+            <h4 class="card-title text-center">
+              <fa-icon icon="user-circle" size="3x"></fa-icon>
+            </h4>
+            <div class="alert alert-info" role="alert">
+              Username: Mathis \\
+              Password: 12345
+            </div>
+            
+            <div [hidden]="!error" class="alert alert-danger">
+              {{ error }}
+            </div>
+            
+            <fieldset [disabled]="isLoading">
+              <form (ngSubmit)="login()" [formGroup]="loginForm">
+                  <div class="form-group">
+                    <label class="d-block">
+                      <input type="text" class="form-control" [placeholder]="'Username'" formControlName="username">
+                      <app-control-messages [control]="f['username']"></app-control-messages>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label class="d-block">
+                      <input type="password" class="form-control" [placeholder]="'Password'" formControlName="password">
+                      <app-control-messages [control]="f['password']"></app-control-messages>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block btn-raised" type="submit" [disabled]="loginForm.invalid">
+                      <span [hidden]="isLoading">Submit</span>
+                      <span [hidden]="!isLoading">
+                        <fa-icon icon="asterisk" size="3x" [spin]="true"></fa-icon>
+                      </span>
+                    </button>
+                  </div>
+                  <a [routerLink]="['/auth/register']" >Don't have an account? Sign up here!</a>
+              </form>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<!------ Include the above in your HEAD tag ---------->
+<section class="login-block">
+  <div class="container">
+    <div [hidden]="!error" class="alert alert-danger">
+      {{ error }}
+    </div>
+
+    <fieldset [disabled]="isLoading">
+      <form class="loginForm" (ngSubmit)="login()" [formGroup]="loginForm">
+        <div class="row">
+          <div class="col-md-4 login-sec">
+            <h2 class="text-center">Login Now</h2>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="text-uppercase">Username</label>
+              <input type="text" class="form-control" placeholder="">
+
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+              <input type="password" class="form-control" placeholder="">
+            </div>
+
+
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input">
+                <small>Remember Me</small>
+              </label>
+              <button type="submit" class="btn btn-login float-right">Submit</button>
+            </div>
+
+            <!-- <div class="copy-text">Created with <i class="fa fa-heart"></i> by Grafreez</div> -->
+          </div>
+          <div class="col-md-8 banner-sec">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                  <img class="d-block img-fluid" src="https://i.pinimg.com/originals/05/3f/5f/053f5ff1c428d60cf3b5ed6b1f4ac542.jpg"
+                    alt="First slide">
+                  <div class="carousel-caption d-none d-md-block">
+                    <div class="banner-text">
+                      <h2>🅶🅾🅾🅳 🅵🅾🅾🅳 🅴🆀🆄🅰🅻🆂 🅶🅾🅾🅳 🅼🅾🅾🅳</h2> -->
+                      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg"
+                    alt="First slide">
+                  <div class="carousel-caption d-none d-md-block">
+                    <div class="banner-text">
+                      <h2>This is Heaven</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block img-fluid" src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg"
+                    alt="First slide">
+                  <div class="carousel-caption d-none d-md-block">
+                    <div class="banner-text">
+                      <h2>This is Heaven</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+</section>

@@ -1,0 +1,200 @@
+<!-- 
+   
+	 <script> 
+    $(function(){
+      $("#food").load("home.html"); 
+    });
+    </script>   -->
+
+<!--   
+  <div class="header">
+	 <img src="/assets/logo.png"  width="100" height="50">
+       <div class="header-right">
+	   <a href="home.html"><button  type="button"  class="btn btn-link"  >Home</button></a>
+	   <a href="home.html#food" ><button  type="button"  class="btn btn-link" >Food Category</button></a>
+	    <a href="login.html"><button  type="button" class="btn btn-outline-danger" >Logout</button></a>
+      </div>
+   </div> -->
+   <nav class="navbar">
+    <img src="/assets/images/logo.png"  width="100" height="50">
+    <form class="form-inline">
+       
+        <a class="pointer" (click)="home()" style="color: white;">Home</a>
+        <a href="#foodCategory" ><button  type="button"  class="btn btn-link"  style="color: white;">Food Category</button></a>
+        <a class="pointer" (click)="logout()" style="color: white;">Logout </a>
+    </form>
+  </nav>
+  <div class="wrap1">
+ 
+       <div class="container">
+
+
+        <div class="main-title"  style="text-align: center;" >
+            <h1 style="color:white">Indian Food</h1><br>
+        </div>
+      
+        <div class="row mgn-btm wow">
+		 <span>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="content">
+                  <form class="login-form" action="">
+                     <div class="form-header">
+					  <img src="/assets/images/appam.jfif" style=" border-radius: 50%" width="200" height="150" >
+                    <h4>Appam</h4>
+                    <p>₹18/- </p>
+					 <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+					    
+					  </div>
+			
+                     </form>
+                </div>
+            </div>
+            </span>
+        
+			<span>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="content">
+                  <form class="login-form" action="">
+                     <div class="form-header">
+					  <img src="/assets/images/idli.jpg" style=" border-radius: 50%" width="200" height="150" >
+                    <h4>Idli</h4>
+                    <p>₹10/-</p>
+					 <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+					    
+					  </div>
+			
+                     </form>
+                </div>
+            </div>
+			</span>
+                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="content">
+                  <form class="login-form" action="">
+                     <div class="form-header">
+					  <img src="/assets/images/Masala-Dosa.jpg" style=" border-radius: 50%" width="200" height="150" >
+                    <h4>Masala Dosa</h4>
+                    <p>₹55/-</p>
+					 <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+					    
+					  </div>
+			
+                     </form>
+                </div>
+            </div>
+        </div>
+		
+		
+		<br>
+		
+		<div class="row mgn-btm wow">
+		 <span>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="content">
+                  <form class="login-form" action="">
+                     <div class="form-header">
+					  <img src="/assets/images/ghee-roast.jpeg" style=" border-radius: 50%" width="200" height="150" >
+                    <h4>Ghee Roast</h4>
+                    <p>₹50/-</p>
+					 <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+					    
+					  </div>
+			
+                     </form>
+                </div>
+            </div>
+			</span>
+			<span>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="content">
+                  <form class="login-form" action="">
+                     <div class="form-header">
+					  <img src="/assets/images/Upma.jpg" style=" border-radius: 50%" width="200" height="150" >
+                    <h4>Upma</h4>
+                    <p>₹25/- </p>
+					 <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+					    
+					  </div>
+			
+                     </form>
+                </div>
+            </div>
+			</span>
+                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="content">
+                  <form class="login-form" action="">
+                     <div class="form-header">
+					  <img src="/assets/images/hyderabadi-biryani.jpg" style=" border-radius: 50%" width="200" height="150" >
+                    <h4>Hyderabadi Biryani</h4>
+                    <p>₹150/- </p>
+					 <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+					    
+					  </div>
+			
+                     </form>
+                </div>
+            </div>
+        </div>
+		
+			<br>
+		
+		<div class="row mgn-btm wow">
+		 <span>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="content">
+                  <form class="login-form" action="">
+                     <div class="form-header">
+					  <img src="/assets/images/malabar-fish-curry.jpg" style=" border-radius: 50%" width="200" height="150" >
+                    <h4>Malabar Fish Curry</h4>
+                    <p>₹95/- </p>
+					 <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+					    
+					  </div>
+			
+                     </form>
+                </div>
+            </div>
+			</span>
+			<span>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="content">
+                  <form class="login-form" action="">
+                     <div class="form-header">
+					  <img src="/assets/images/chettinad-chicken.jpg" style=" border-radius: 50%" width="200" height="150" >
+                    <h4>Chettinad Chicken</h4>
+                    <p>₹150/- </p>
+					 <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+					    
+					  </div>
+			
+                     </form>
+                </div>
+            </div>
+			</span>
+                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="content">
+                  <form class="login-form" action="">
+                     <div class="form-header">
+					  <img src="/assets/images/tamarind-rice.jpg" style=" border-radius: 50%" width="200" height="150" >
+                    <h4>Tamarind Rice</h4>
+                    <p>₹100/- </p>
+					 <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
+					    
+					  </div>
+			
+                     </form>
+                </div>
+            </div>
+        </div>
+		
+      
+    </div> 
+    </div>
+
+    <footer class="footer">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3" style="color: white;">© 2019 Copyright:
+              <a href="https://apc.delve.office.com/?u=2096e27a-3d60-4397-a5fb-69767aae98e4&v=work" style="color: white;">Anoop</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
