@@ -20,14 +20,18 @@
    
      <div class="row mgn-btm wow">
       <span>
+
+            <!-- <ul>
+                    <li *ngFor="let foodItem of foodList | async">{{foodItem.name}}</li>
+                  </ul> -->
          <div  >
-             <div *ngFor="let items of list" class="content">
+             <div *ngFor="let food of foodList | async" class="content">
                <form class="login-form" action="">
                   <div class="form-header">
                   <ul>       
-                 <img src={{items.img}} style=" border-radius: 50%" width="200" height="150" >
-                 <h4>{{items.fname}}</h4>
-                 <p>₹{{items.fprice}}/- </p>
+                 <img src="/assets/images/{{food.imageUrl}}" style=" border-radius: 50%" width="200" height="150" >
+                 <h4>{{food.name}}</h4>
+                 <p>₹{{food.unitPrice}}/- </p>
                  <p><button class="cart-button" (click)="cart()" >Add to Cart</button></p>
                  </ul>
                 </div>
