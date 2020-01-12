@@ -299,3 +299,8 @@ module.exports.deleteItem = (req, res) => {
 
   repository.removeOne(req, res, 'inventory', condition)
 }
+
+module.exports.getItemByCategory=(req,res) =>{
+  condition = {category:req.params.category};
+  repository.fetchFiltered(req,res,'inventory',condition)
+ }

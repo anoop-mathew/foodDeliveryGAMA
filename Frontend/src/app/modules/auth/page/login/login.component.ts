@@ -51,15 +51,14 @@ export class LoginComponent implements OnInit {
     this.authService.login(request)
      .pipe()
       .subscribe(result => {
-        this.userDetails = result;
         console.log(result)
-        if (this.userDetails.error) {
+        if (result.error) {
           window.alert('invalid');
-          console.log(this.userDetails)
+          console.log(result)
         }
         else {
          
-          localStorage.setItem('appuser', this.userDetails);
+          localStorage.setItem('appuser',JSON.stringify(result) );
           //
           this.router.navigate(['/home/home']);
         }

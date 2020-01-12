@@ -1,34 +1,34 @@
-<carousel [noPause]="false">
-        <div class="content" *ngFor="let i of details">
-        <slide>
-            <h1 style="text-align:center">{{i.name}}</h1>
-            <br>
-       <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-4" >
-                
-                  <img src={{i.img}} alt="First slide" style="display: block; width:450px; height: 250px; ">
-                
-                 <br>
-                  <p>₹{{i.price}}/- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button2">Add to Cart</button></p>
-                  
-                  
-                
+<div class="stl">
+    <div class="container" > <!--style="width: 7cm;height:3cm"-->
+
+        <div class="col">
+
+            <div class="card" style="width: 25rem;" class="content"><br><br><br>
+                <carousel>
+                    <slide>
+                        <img src="assets/images/{{foodDetail.img1}} " alt="first slide"
+                            style="display: block; width: 100%;">
+                    </slide>
+                    <slide>
+                        <img src="assets/images/{{foodDetail.img2}} " alt="second slide"
+                            style="display: block; width: 100%;">
+
+                    </slide>
+                </carousel>
+                <div class="card-block">
+                    <h4 class="card-title" >{{foodDetail.name}}</h4>
+                    <p class="card-text">{{foodDetail.price}}
+                        <br>
+                        {{foodDetail.description}}
+                    </p>
+                    <a [routerLink]="['/food/food-list']" class="add-to-cart btn btn-success">Back to
+                        cart</a><br><br><br>
                 </div>
-              <div class="col-md-8">
-                  <h4 class="desc">{{i.description}}</h4>
-                 
-                
-              </div>
             </div>
-          </div>
-        
-        </slide>
         </div>
-        </carousel>
-        
-        
-        
+
+    </div>
+</div>
                     
                  
         

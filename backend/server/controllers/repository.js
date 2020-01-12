@@ -268,6 +268,8 @@ module.exports.getItemDetail = (req, res) => {
             rating: true,
             imageUrl: true,
             reviews: true,
+            img1: true,
+            img2: true,
             reviewsCount: {
               $size: "$reviews"
             }
@@ -338,3 +340,25 @@ module.exports.getCartItems = (req, res) => {
     })
   }
 }
+
+module.exports.getAllCategory = (req, res, collection) => { 
+  MongoClient.connect(con, function (err, db) {
+  if (err) throw err
+  
+  db.collection('category').find().toArray(function (err, result) {
+  if (err) throw err
+  res.send(result)
+  })
+  })
+ }
+  
+ module.exports.getItemByCategoryByName = (req, res, collection, condition) => {
+  console.log("req.params.category", req.params.category);
+  MongoClient.connect(con, function (err, db) {
+  if (err) throw err;
+  db.collection(collection).find(condition).toArray(function (err, result) {
+  if (err) throw err
+  res.send(result);
+  })
+  })
+  }

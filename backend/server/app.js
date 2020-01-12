@@ -22,6 +22,8 @@ app.use('/', require('./routes/auth'))
 app.use('/cart', require('./routes/cart'))
 app.use('/inventory', require('./routes/inventory'))
 app.use('/review', require('./routes/review'))
+app.use('/category', require('./routes/category'))
+
 
 
 module.exports = app
