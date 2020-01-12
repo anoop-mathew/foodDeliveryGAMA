@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
-import { of, Observable, throwError } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { User } from '../../data/schema/user';
+import { HttpClient, HttpErrorResponse,  } from '@angular/common/http';
+import { catchError, map } from 'rxjs/operators';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import { Observable } from 'rxjs/Observable';
+import { throwError } from 'rxjs/internal/observable/throwError';
+import { of } from 'rxjs';
 
 interface LoginContextInterface {
   username: string;
@@ -15,25 +20,47 @@ const defaultUser = {
   token: '12345'
 };
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   token: string;
 
-  login(loginContext: LoginContextInterface): Observable<User> {
-    if (
-      loginContext.username === defaultUser.username &&
-      loginContext.password === defaultUser.password
-    ) {
-        return of(defaultUser);
-    }
+  constructor(private http: HttpClient) { }
 
-    return throwError('Invalid username or password');
+  login(data): Observable<any> {
+    return this.http.post('http://localhost:5300/login', data)
+      .pipe(
+        catchError(this.errorMgmt)
+      )
   }
 
+  // checkLogin(data){
+  //   return this.http.post('http://localhost:5300/login', data).map(
+  //     (result: Response) => {
+  //       debugger;
+  //       console.log(result);
+  //     }
+  //   )
+  // }
 
 
+
+
+
+  errorMgmt(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
+  }
 
   logout(): Observable<boolean> {
     return of(false);

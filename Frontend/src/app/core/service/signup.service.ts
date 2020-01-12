@@ -13,14 +13,14 @@ export class SignupService {
 
   constructor(private http: HttpClient) { }
 
-  // Create
-  createSignup(data): Observable<any> {
-    let url = `${environment.API_URL}/create`;
-    return this.http.post(url, data)
+  createUser(data): Observable<any> {
+   
+    return this.http.post('http://localhost:5300/signup', data)
       .pipe(
         catchError(this.errorMgmt)
       )
   }
+
 
  
   // Error handling 

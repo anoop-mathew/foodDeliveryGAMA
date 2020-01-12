@@ -23,7 +23,7 @@ let userSchema = new Schema({
   
 },
 {
-    collection: 'login'
+    collection: 'user'
 
 });
 

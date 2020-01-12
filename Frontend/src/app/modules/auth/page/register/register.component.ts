@@ -27,18 +27,21 @@ export class RegisterComponent implements OnInit {
     this.signupForm = this.fb.group({
       name: ['', [Validators.required]],
       moblie: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      email: ['', [ Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
+      username: ['', [ Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
       password: ['', [Validators.required]]
-    });
+    })
   } 
- 
+  
+  get myForm(){
+    return this.signupForm.controls;
+  }
 
   onSubmit() {
     this.submitted = true;
     if (!this.signupForm.valid) {
       return false;
     } else {
-      this.SignupService.createSignup(this.signupForm.value).subscribe(
+      this.SignupService.createUser(this.signupForm.value).subscribe(
         (res) => {
           console.log('Signup successfully created!')
           this.ngZone.run(() => this.router.navigateByUrl('/auth/login'))

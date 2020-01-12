@@ -104,6 +104,19 @@ module.exports.reviseOne = (req, res, collection, condition, document) => {
   })
 }
 
+module.exports.signup = (req, res, collection, document) => {
+  MongoClient.connect(con, function (err, db) {
+    if (err) throw err
+
+    db.collection(collection).insertOne(document).then(function(result) {
+      console.log(collection + ' - Inserted');
+      res.statusCode = 201;
+      res.json(result.ops[0]);
+      res.send(result);
+    })
+  })
+}
+
 // INVENTORY
 
 /**
@@ -221,6 +234,8 @@ module.exports.getItemsForUser = (req, res) => {
 /**
 * FETCH item detail (includes users reviews)
 */
+
+
 module.exports.getItemDetail = (req, res) => {
   MongoClient.connect(con, function (err, db) {
     if (err) throw err;
