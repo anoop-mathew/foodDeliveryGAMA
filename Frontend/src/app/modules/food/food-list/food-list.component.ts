@@ -24,7 +24,7 @@ export class FoodListComponent implements OnInit, OnDestroy {
   constructor(private messageService: MessageService, private route: ActivatedRoute, private router: Router, private FoodService: FoodService, private cartService: CartService, private ref: ChangeDetectorRef) {
     this.subscription = this.messageService.getCategory().subscribe(message => {
 
-      alert(message.text);
+      //alert(message.text);
       this.foodlist = this.FoodService.getfoodListByCategoy(message.text).pipe();
       this.ref.markForCheck();
       console.log(message);

@@ -4,6 +4,7 @@ import { environment } from '@env';
 import { Observable } from 'rxjs';
 import { ThemeService } from 'app/core/service/theme.service';
 import { Router } from '@angular/router';
+import { FoodService } from '@shared/service/food.service';
 
 @Component({
   selector: 'app-nav',
@@ -23,7 +24,8 @@ export class NavComponent implements OnInit {
 
   constructor(
     private themeService: ThemeService,
-    private router: Router
+    private router: Router,
+    private FoodService: FoodService
   ) {}
 
   ngOnInit() {
@@ -36,6 +38,11 @@ export class NavComponent implements OnInit {
 
   
   Logout() {
-    this.router.navigate(['/auth/login']);
+
+    this.FoodService.Logout();
+    //this.router.navigate(['/auth/login']);
   }
+
+  
+ 
 }

@@ -6,6 +6,7 @@ import { catchError, map } from 'rxjs/operators';
 import { environment } from 'environments/environment.ts';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class FoodService {
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,   private router: Router) { }
 
   private parseResponse(obj) {
     return Object.keys(obj).map(key => obj[key]);
@@ -53,6 +54,14 @@ export class FoodService {
     return throwError(errorMessage);
   }
 
+  
+  Logout(): void{    
+    //localStorage.setItem('isLoggedIn','false');    
+   localStorage.removeItem('appuser');  
+   localStorage.removeItem('username');
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);   
+    } 
 
 
 }

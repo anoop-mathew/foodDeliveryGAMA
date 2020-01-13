@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CartService } from '@shared/service/cart.service'
 import {Observable} from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-food-cart',
@@ -15,7 +16,7 @@ export class FoodCartComponent implements OnInit {
   subtotal: any;
   // total$: Observable<number>;
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(private CartService: CartService, private ref: ChangeDetectorRef) {  
+  constructor(private CartService: CartService, private ref: ChangeDetectorRef, private router : Router) {  
     // this.total$ = CartService.total$;
   //   this.cartItem = [
   //   {id: '1', name: 'Dosa', price: '50', qty: 1},
@@ -60,4 +61,16 @@ decrease(product){
 
       this.ref.markForCheck();
     }
+
+ 
+checkout(){
+const cartItems = JSON.parse(localStorage.getItem('cart1'))
+if (cartItems.length > 0){
+this.router.navigate(['food/checkout'])
+}else{
+alert ('No Items In Cart');
+}
+} 
+ 
+
 }
