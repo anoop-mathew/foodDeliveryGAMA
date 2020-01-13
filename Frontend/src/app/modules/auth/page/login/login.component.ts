@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { tap, delay, finalize, catchError } from 'rxjs/operators';
+import { tap, delay, finalize, catchError, first } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+
 import { AuthService } from '@app/service/auth.service';
+import { UserService } from '@app/service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,52 +16,55 @@ export class LoginComponent implements OnInit {
   error: string;
   isLoading: boolean;
   loginForm: FormGroup;
-  apiUrl = "http://dummy.restapiexample.com/api/v1/employees";
-  private result:any;
+  username: any;
+  password: any;
+  userDetails: any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService,
-    private http:HttpClient
+    private authService: AuthService
 
   ) {
     this.buildForm();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // console.log(this.userList);
+    // console.log(userList());
+    // this.userList();
+  }
 
   get f() {
     return this.loginForm.controls;
   }
 
   login() {
-
-    const request = {
-      username: 'Mathis',
-      password: '12345',
-    };
-
-
+  
     this.isLoading = true;
 
     const credentials = this.loginForm.value;
+    const request = {
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password
+    }
 
-    this.http.post<any[]>(this.apiUrl,request)
-    .subscribe(data => {
-      this.result = data
-    });
+    this.authService.login(request)
+     .pipe()
+      .subscribe(result => {
+        console.log(result)
+        if (result.error) {
+          window.alert('invalid');
+          console.log(result)
+        }
+        else {
+         
+          localStorage.setItem('appuser',JSON.stringify(result) );
+          //
+          this.router.navigate(['/home/home']);
+        }
+      }
 
-    // this.authService
-    //   .login(credentials)
-    //   .pipe(
-    //     delay(5000),
-    //     tap(user => this.router.navigate(['/home/home'])),
-    //     finalize(() => (this.isLoading = false)),
-    //     catchError(error => of((this.error = error)))
-    //   )
-    //   .subscribe();
-
-
+      );
   }
 
   private buildForm(): void {
@@ -69,4 +73,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
+  // tslint:disable-next-line:member-ordering
+  // userList = this.authService.userList().pipe();
 }

@@ -61,15 +61,15 @@ export class HomeComponent implements OnInit {
 
 
   indian() {
-    this.router.navigate(['food/food-list']);
+    this.router.navigate(['/food/food-list/all']);
   }
 
   chinese() {
-    this.router.navigate(['food/food-list']);
+    this.router.navigate(['/food/food-list/all']);
   }
 
   american() {
-    this.router.navigate(['food/food-list']);
+    this.router.navigate(['/food/food-list/all']);
   }
   
   

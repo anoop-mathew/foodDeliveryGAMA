@@ -28,11 +28,11 @@ export const routes: Routes = [
         component: FoodCheckoutComponent
       },
       {
-        path: 'details',
+        path: 'details/:_id',
         component: FoodDetailsComponent
       },
       {
-        path: 'food-list',
+        path: 'food-list/:category',
         loadChildren: () =>
           import('@modules/food/food-list/food-list.module').then(m => m.FoodListModule)
       },

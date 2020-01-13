@@ -2,31 +2,31 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignupService {
-  baseUri:string = 'http://localhost:4000/api';
+  //baseUri:string = 'http://localhost:4000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
 
-  // Create
-  createSignup(data): Observable<any> {
-    let url = `${this.baseUri}/create`;
-    return this.http.post(url, data)
+  createUser(data): Observable<any> {
+   
+    return this.http.post('http://localhost:5300/signup', data)
       .pipe(
         catchError(this.errorMgmt)
       )
   }
+
 
  
   // Error handling 
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
-      // Get client-side error
       errorMessage = error.error.message;
     } else {
       // Get server-side error

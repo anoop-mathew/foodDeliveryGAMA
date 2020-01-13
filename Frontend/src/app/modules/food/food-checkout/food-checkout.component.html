@@ -1,82 +1,121 @@
 <div class="bg">
-        <div class="row">
-            <div class="col-75">
-              <div class="container">
-                <form action="/action_page.php">
-          
+    <div class="row">
+        <div class="col-75">
+          <div class="container">
+              <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+     
+              <div class="row">
+                <div class="col-50">
+                  <h1>Billing Address</h1>
+
+                  <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                  <input type="text" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+                  <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                      <div *ngIf="f.fullName.errors.required">Full Name is required</div>
+                  </div>
+
+                    <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+
+                    <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                    <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                        <div *ngIf="f.address.errors.required">Address is required</div>
+                    </div>
+
+                    <label for="city"><i class="fa fa-institution"></i> City</label>
+                    <input type="text" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+                    <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                        <div *ngIf="f.city.errors.required">City is required</div>
+                    </div>
+     
                   <div class="row">
                     <div class="col-50">
-                      <h1>Billing Address</h1>
-                      <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                      <input type="text" id="fname" name="firstname" placeholder="John P Alex">
-                      <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                      <input type="text" id="email" name="email" placeholder="john@example.com">
-                      <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                      <input type="text" id="adr" name="address" placeholder="Kulathoor P.O">
-                      <label for="city"><i class="fa fa-institution"></i> City</label>
-                      <input type="text" id="city" name="city" placeholder="Trivandrum">
-          
-                      <div class="row">
-                        <div class="col-50">
-                          <label for="state">State</label>
-                          <input type="text" id="state" name="state" placeholder="Kerala">
-                        </div>
-                        
+                      <label for="state">State</label>
+                      <input type="text" formControlName="state" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" />
+                      <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                          <div *ngIf="f.state.errors.required">State is required</div>
                       </div>
-                    </div>
-          
-                    <div class="col-50">
-                      <h1>Payment</h1>
-                      <label for="fname"><h3>VISA CARD</h3></label>
-                      <div class="icon-container">
-                        <i class="fa fa-cc-visa" style="color:navy;"></i>
-                        <i class="fa fa-cc-amex" style="color:blue;"></i>
-                        <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                        <i class="fa fa-cc-discover" style="color:orange;"></i>
                       </div>
-                      <label for="cname">Name on Card</label>
-                      <input type="text" id="cname" name="cardname" placeholder="John P Alex">
-                      <label for="ccnum">Credit card number</label>
-                      <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-                      <label for="expmonth">Exp Month</label>
-                      <input type="text" id="expmonth" name="expmonth" placeholder="September">
-          
-                      <div class="row">
-                        <div class="col-50">
-                          <label for="expyear">Exp Year</label>
-                          <input type="text" id="expyear" name="expyear" placeholder="2020">
-                        </div>
-                        <div class="col-50">
-                          <label for="cvv">CVV</label>
-                          <input type="text" id="cvv" name="cvv" placeholder="352">
-                        </div>
-                      </div>
-                    </div>
-          
+                   
                   </div>
-                  <label>
-                    <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-                  </label>
-                  <input type="submit" value="Pay" class="btn">
-                </form>
+                </div>
+     
+                <div class="col-50">
+                  <h1>Payment</h1>
+                  <label for="fname"><h3>VISA CARD</h3></label>
+                  <div class="icon-container">
+                    <i class="fa fa-cc-visa" style="color:navy;"></i>
+                    <i class="fa fa-cc-amex" style="color:blue;"></i>
+                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                    <i class="fa fa-cc-discover" style="color:orange;"></i>
+                  </div>
+
+                  <label for="cname">Name on Card</label>
+                  <input type="text" formControlName="cname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cname.errors }" />
+                  <div *ngIf="submitted && f.cname.errors" class="invalid-feedback">
+                      <div *ngIf="f.cname.errors.required">Name on Card is required</div>
+                  </div>
+
+                <label for="ccnum">Credit card number</label>
+                    <input type="text" formControlName="cnum" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cnum.errors }" />
+                    <div *ngIf="submitted && f.cnum.errors" class="invalid-feedback">
+                        <div *ngIf="f.cnum.errors.required">Credit card number is required</div>
+                    </div>
+
+                  <label for="expmonth">Expiry Month</label>
+                    <input type="text" formControlName="month" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.month.errors }" />
+                    <div *ngIf="submitted && f.month.errors" class="invalid-feedback">
+                        <div *ngIf="f.month.errors.required">Expiry Month is required</div>
+                    </div>
+     
+                  <div class="row">
+                    <div class="col-50">
+                      <label for="expyear">Expiry Year</label>
+                      <input type="text" formControlName="year" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.year.errors }" />
+                      <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+                          <div *ngIf="f.year.errors.required">Expiry Year is required</div>
+                      </div>
+                      </div>
+
+                    <div class="col-50">
+                      <label for="cvv">CVV</label>
+                    <input type="text" formControlName="cvvv" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cvvv.errors }" />
+                    <div *ngIf="submitted && f.cvvv.errors" class="invalid-feedback">
+                        <div *ngIf="f.cvvv.errors.required">CVV is required</div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+     
               </div>
-            </div>
-          
-            <div class="col-25">
-              <div class="container">
-                <h4>Cart
-                  <span class="price" style="color:black">
-                    <!-- <i class="fa fa-shopping-cart"></i> -->
-                    <b>Price</b>
-                  </span>
-                </h4>
-                <div class="list" *ngFor="let item of cart" >
-                <p><a href="#">{{item.p_Name}}</a> <span class="price">{{item.p_Price}}</span></p>
-               </div>
-               <hr>
-                <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
-              </div>
-            </div>
+              <label>
+                <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+              </label>
+              <input type="submit" value="Pay" class="btn">
+            </form>
           </div>
-        
         </div>
+     
+        <div class="col-25">
+          <div class="container">
+            <h4>Cart
+              <span class="price" style="color:black">
+                <!-- <i class="fa fa-shopping-cart"></i> -->
+                <b>Price</b>
+              </span>
+            </h4>
+            <div class="list" *ngFor="let item of items" >
+            <p><a href="#">{{item.name}}</a> <span class="price">{{item.total}}</span></p>
+           </div>
+           <hr>
+            <p>Total <span class="price" style="color:black"><b>{{subtotal}}</b></span></p>
+          </div>
+        </div>
+      </div>
+   
+    </div>

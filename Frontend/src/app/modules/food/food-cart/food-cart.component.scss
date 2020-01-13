@@ -56,8 +56,8 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
 // .product-image { float: left; width: 20%; }
  .product-details { float: left; width: 37%; }
  .product-price { float: left; width: 15%; }
- .product-quantity { float: left; width: 15%; }
- .product-removal { float: left; width: 15%; }
+ .product-quantity { float: left; width: 19%; }
+ .product-removal { float: left; width: 17%; }
 .product-line-price { float: left; width: 12%; text-align: right; }
 
 
@@ -82,7 +82,7 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
 
 
 /* Apply dollar signs */
-.product .product-price:before, .product .product-line-price:before, .totals-value:before {
+.product .product-price:before, .totals-value:before {
   content: '₹';
 }
 

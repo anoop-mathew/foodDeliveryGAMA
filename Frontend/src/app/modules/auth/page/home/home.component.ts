@@ -63,12 +63,12 @@ export class HomeComponent implements OnInit {
   }
 
   indian() {
-    this.router.navigate(['indian']);
+    this.router.navigate(['/auth/login']);
   }
   chinese() {
-    this.router.navigate(['chinese']);
+    this.router.navigate(['/auth/login']);
   }
   american() {
-    this.router.navigate(['american']);
+    this.router.navigate(['/auth/login']);
   }
 }

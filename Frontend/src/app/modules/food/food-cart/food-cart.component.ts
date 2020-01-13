@@ -1,4 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { CartService } from '@shared/service/cart.service'
+import {Observable} from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-food-cart',
@@ -7,10 +10,67 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FoodCartComponent implements OnInit {
+  cartItem: any;
+  items: any;
+  dlt: any;
+  subtotal: any;
+  // total$: Observable<number>;
+  // tslint:disable-next-line:no-shadowed-variable
+  constructor(private CartService: CartService, private ref: ChangeDetectorRef, private router : Router) {  
+    // this.total$ = CartService.total$;
+  //   this.cartItem = [
+  //   {id: '1', name: 'Dosa', price: '50', qty: 1},
+  //   {id: '2', name: 'Idli', price: '30', qty: 2},
+  //   {id: '3', name: 'Appam', price: '40', qty: 3}
 
-  constructor() { }
+  // ]
+  // localStorage.setItem('cart', JSON.stringify(this.cartItem));
+ 
+}
 
   ngOnInit() {
+    this.CartService.findTotal();
+    this.items = JSON.parse(localStorage.getItem('cart1'));
+    this.subtotal = this.CartService.subTotal();
   }
+deleteitem(deleteitemName){
+  console.log(deleteitemName);
+  // tslint:disable-next-line:prefer-const
+  this.CartService.removeById(deleteitemName);
+  // localStorage.setItem('cart', JSON.stringify(v));
+ this.items = this.CartService.getCartItems();
+}
+
+decrease(product){
+  product.qty--;
+  this.CartService.removeItem(product);
+  this.items = this.CartService.getCartItems();
+  this.CartService.findTotal();
+  this.subtotal=this.CartService.subTotal();
+  this.ref.markForCheck();
+
+    }
+   
+   
+  addTocart(product){
+      product.qty++;
+      this.CartService.addTocart(product);
+      this.items = this.CartService.getCartItems();
+      this.CartService.findTotal();
+      this.subtotal=this.CartService.subTotal();
+
+      this.ref.markForCheck();
+    }
+
+ 
+checkout(){
+const cartItems = JSON.parse(localStorage.getItem('cart1'))
+if (cartItems.length > 0){
+this.router.navigate(['food/checkout'])
+}else{
+alert ('No Items In Cart');
+}
+} 
+ 
 
 }
